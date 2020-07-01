@@ -112,10 +112,10 @@
                 <div class="col-sm-12">
                   Group
                   <select id="id_group" name="id_group" class="form-control" required>
-                  <?php $result = $this->db->get("tbl_user_group")->result(); ?>
+                  <?php $result = $this->db->get("tbl_user_roles")->result(); ?>
                   <option value="">PILIH</option>
                   <?php foreach($result as $data): ?>
-                    <option value="<?php echo $data->id_group;?>"><?php echo $data->nama_group;?></option>
+                    <option value="<?php echo $data->id_roles;?>"><?php echo $data->nama_roles;?></option>
                   <?php endforeach;?>
                   </select>
                 </div>
