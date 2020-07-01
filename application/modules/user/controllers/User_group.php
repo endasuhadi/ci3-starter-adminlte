@@ -51,14 +51,14 @@ class User_group extends CI_Controller {
 	public function hapus(){
 		if($this->input->post("id_user")){
 			$this->db->where("id_user",$this->input->post("id_user"));
-			$this->db->delete("tbl_user");
+			$this->db->delete("tbl_user_group");
 			echo 1;
 		}
 	}
 
     public function check_username($username){
         $this->db->where("username",$username);
-        $row = $this->db->get("tbl_user")->row();
+        $row = $this->db->get("tbl_user_group")->row();
         return $row;
     }
 
@@ -87,10 +87,10 @@ class User_group extends CI_Controller {
             $this->db->set('password', 'PASSWORD("'.$this->input->post('password', TRUE).'")', FALSE);
         }
         if(empty($is_edit)){
-            $save = $this->db->insert("tbl_user",$data);
+            $save = $this->db->insert("tbl_user_group",$data);
         }else{
             $this->db->where("id_user",$this->input->post("id_edit"));
-            $save = $this->db->update("tbl_user",$data);
+            $save = $this->db->update("tbl_user_group",$data);
         }
         if($save){
             echo 1;
